@@ -1,0 +1,9 @@
+How to search for words:
+First read in the Tracker 1 and 2 text files into a tracker object. We didn't write a function for this,
+but it shouldn't be too hard to figure out.
+Use the tryout everywhere function to fill in a common word, with spaces left and right, such as ' the ',
+and it will loop through all of the positions. Most of the results won't make sense, but if you see some
+result that seems to make sense, you can try and complete the word with the tryout function. You should
+reverse the flag (if you had true in the tryout everything, set it to false in the tryout), and try to
+complete the word fragment that you found. If you do find a word you are certain of, add it to the tracker.
+Besides common words, you could also try word endings such as -able or -ness.

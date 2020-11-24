@@ -1,0 +1,47 @@
+What do we get:
+- Two cyphertexts of length 1000 characters
+- Some useful functions that were defined by Breandann, and are all in the otp
+directory. They are included in the main.py file. Most functions we can use come
+from the otp.py file. This contains the alphabet of all acceptable characters,
+and functions to do the math for us. They can be called by otp.ALPHABET, or 
+otp.add_modulo_alphabet.
+
+What is our approach:
+- We know that C1 - C2 = M1 - M2, with C for cyphertext and M for original message.
+Lets call this difference d. If we add common English words such as ' the ' to d,
+and the result seems to be an English word fragment, this might be a correct guess.
+We will try out common words over the whole length of d, print out all the results,
+and see if any of them seem to make sense. If any of the results seem to be a word
+fragment, we try to complete that word by guessing, and seeing if the results for
+the other message also make sense. This way, we can expand our range of known
+characters. We also keep track of those characters we have already found out, for
+the otp and both the messages.
+- If a word ' the ' makes sense when added to C1 - C2, then we know that M2
+contained ' the ' at that position, and M1 contains the other resulting word
+fragment. We have to therefore also try out the common words on C2 - C1. When we
+know some characters of M1 and M2, we also know the value of the otp on those
+characters, namely C1 - M1.
+
+Which stuff do we need:
+- Exploring function: this one passes a common English word over the characters in
+d, and prints out the result of the sum at that index. It should take as input a
+word of variable length and a string of 1000 characters, not output anything, just 
+print 1000 lines of word fragments that result from adding the word at all the 
+indexes. The print statement should include index numbers. So: 
+'at position 665, 666, 667: kam'
+- Keep track objects. We need 3 objects that keep track of the values for otp, M1
+and M2 we have found so far. They are initially set to 1000 NULL or empty
+characters, and they can be updated as we go along. You could do this by defining
+a class (lots of tutorials online for making a class) or other methods. These
+objects should have: an update function to add a character we found out on a
+specific index. A print function that shows what we have so far, and also shows
+an indication of index. A backup function which we can run once in a while to 
+store the objects, so we can get back to those if we messed up some characters. 
+Look into deepcopy for this.
+- Try out function: if we think we might have a match, we will try to guess
+to complete a word. This function needs to take in a string of length 1000 d, a
+string of variable length that is our guess, an index of where we want to guess,
+a boolean indicating whether we are guessing for M1 or M2. It should not return 
+anything but print out the resulting M1 and M2 fragments on the location of the
+index where we guessed. The user of the function will make sure that d1 = C1 - C2
+or d2 = C2 - C1 is used properly.

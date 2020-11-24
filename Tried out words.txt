@@ -1,0 +1,37 @@
+Words we tried already for M1:
+' the '
+' that '
+' with '
+' from '
+' where '
+' this '
+' have '
+' what '
+' there '
+' which '
+' said '
+' when '
+' people '
+
+
+Words we tried already for M2:
+' the '
+' and '
+' this '
+' that '
+' have '
+' from '
+' had '
+' but '
+' not '
+' what '
+' can '
+' she '
+' will '
+' people '
+' water '
+' like '
+
+
+Tip for searching words:
+use word.tips to search for checking for words containing specific letter combinations
